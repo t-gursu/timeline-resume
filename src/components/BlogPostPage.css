@@ -1,0 +1,21 @@
+.blog-post-container {
+  padding: 40px;
+  width: 100%;
+  /* min-width yerine width kullanıyoruz */
+  margin: 20px auto;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  /* Taşma durumlarını önlemek için */
+}
+
+.blog-post-title {
+  font-size: 2.8rem;
+  color: rgb(107, 178, 219);
+  ;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #444;
+  padding-bottom: 10px;
+}

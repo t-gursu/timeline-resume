@@ -1,0 +1,62 @@
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  border-top: 3px solid #ccc;
+  padding-top: 30px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 3px;
+  height: 100%;
+  background-color: #ccc;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 0;
+    align-items: center;
+    /* Center the timeline items */
+    padding-top: 30px;
+  }
+
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+  }
+
+  .search-bar {
+    width: 90%;
+    /* Full width for the search bar on mobile */
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline {
+    padding-left: 0;
+    align-items: center;
+    /* Keep items centered on smaller screens */
+    padding-top: 20px;
+  }
+
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    /* Slightly thinner for better fit on small screens */
+  }
+
+  .search-bar {
+    width: 90%;
+    /* Make sure search bar takes nearly full width */
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,95 @@
+.filters-and-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+}
+
+.Filters {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+    z-index: 15;
+}
+
+#career-filter,
+#tags-filter {
+    margin-right: 20px;
+}
+
+#tags-filter {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.Filters button {
+    background-color: #444;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    margin-top: -10px;
+}
+
+.Filters button:hover {
+    background-color: #555;
+}
+
+.Filters button.active {
+    background-color: #00aaff;
+    color: white;
+    border-color: #0088cc;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #444;
+    color: #fff;
+    width: 200px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .filters-and-search {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Filters {
+        justify-content: center;
+        margin: 10px 0;
+        flex-wrap: wrap;
+    }
+
+    .Filters button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .filters-and-search {
+        padding: 5px;
+    }
+
+    .Filters button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
