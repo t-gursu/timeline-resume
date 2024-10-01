@@ -65,7 +65,7 @@ const Filters = ({ setFilter, setFilterPath, setSearchTerm, setSortOrder }) => {
           onChange={handleSearchChange}
         />
         <button className="sort-button" onClick={toggleSortOrder}>
-          Sort: {sortOrder === "oldest" ? "Newest to Oldest" : "Oldest to Newest"}
+          Sort: {sortOrder === "newest" ? "Newest to Oldest" : "Oldest to Newest"}
         </button>
       </div>
     </div>
