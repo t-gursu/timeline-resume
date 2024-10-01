@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import './Filters.css';
 import { careerPaths, tags } from './../config';
 
-const Filters = ({ setFilter, setFilterPath, setSearchTerm }) => {
+const Filters = ({ setFilter, setFilterPath, setSearchTerm, setSortOrder }) => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [activeFilterPath, setActiveFilterPath] = useState("all");
+  const [sortOrder, setSortOrderState] = useState("newest"); // Eklenen state
 
   const handleFilterClick = (filter) => {
     setFilter(filter);
@@ -18,6 +19,12 @@ const Filters = ({ setFilter, setFilterPath, setSearchTerm }) => {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
+  };
+
+  const toggleSortOrder = () => {
+    const newSortOrder = sortOrder === "newest" ? "oldest" : "newest";
+    setSortOrderState(newSortOrder);
+    setSortOrder(newSortOrder);
   };
 
   return (
@@ -48,8 +55,6 @@ const Filters = ({ setFilter, setFilterPath, setSearchTerm }) => {
             </button>
           ))}
         </div>
-
-        
       </div>
 
       <div className="search-container">
@@ -57,9 +62,11 @@ const Filters = ({ setFilter, setFilterPath, setSearchTerm }) => {
           type="text"
           placeholder="Search..."
           className="search-bar"
-          // value={searchTerm}
           onChange={handleSearchChange}
         />
+        <button className="sort-button" onClick={toggleSortOrder}>
+          Sort: {sortOrder === "oldest" ? "Newest to Oldest" : "Oldest to Newest"}
+        </button>
       </div>
     </div>
   );

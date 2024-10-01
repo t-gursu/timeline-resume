@@ -30,6 +30,7 @@ const App = () => {
   const [filterPath, setFilterPath] = useState("all");
   const [language, setLanguage] = useState('en');
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState("oldest");
 
   const timelineData = language === 'en' ? timelineDataEn : timelineDataDe;
 
@@ -38,6 +39,17 @@ const App = () => {
     const filterPathMatch = filterPath === "all" || item.path.includes(filterPath);
     const searchedMatch = searchTerm === "" || (item.details).toLowerCase().includes(searchTerm.toLowerCase());
     return filterMatch && filterPathMatch && searchedMatch;
+  });
+
+  const sortedTimeline = filteredTimeline.sort((a, b) => {
+    const indexA = timelineData.indexOf(a);
+    const indexB = timelineData.indexOf(b);
+
+    if (sortOrder === "newest") {
+      return indexB - indexA; // Dizinin sonundan başlayarak sıralama (yeni > eski)
+    } else {
+      return indexA - indexB; // Dizinin başından başlayarak sıralama (eski > yeni)
+    }
   });
 
   const changeLanguage = (lng) => {
@@ -56,17 +68,17 @@ const App = () => {
               <Route path="/" element={
                 <>
                   <div className="filters-timeline-container">
-                    
-                    <div class="social-menu-mobile">
+
+                    <div className="social-menu-mobile">
                       <ul>
-                        <li><a href="https://github.com/t-gursu" target="blank"><i class="fab fa-github"></i></a></li>
-                        <li><a href="https://www.instagram.com/hiagaga/" target="blank"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/gursutoparlak/" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="https://github.com/t-gursu" target="blank"><i className="fab fa-github"></i></a></li>
+                        <li><a href="https://www.instagram.com/hiagaga/" target="blank"><i className="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/gursutoparlak/" target="blank"><i className="fab fa-linkedin-in"></i></a></li>
                       </ul>
                     </div>
 
-                    <Filters setFilter={setFilter} setFilterPath={setFilterPath} setSearchTerm={setSearchTerm} />
-                    <Timeline data={filteredTimeline} data-aos="fade-up" />
+                    <Filters setFilter={setFilter} setFilterPath={setFilterPath} setSearchTerm={setSearchTerm} setSortOrder={setSortOrder} />
+                    <Timeline data={sortedTimeline} data-aos="fade-up" />
                   </div>
                 </>
               } />
