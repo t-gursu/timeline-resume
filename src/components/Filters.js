@@ -5,7 +5,7 @@ import { careerPaths, tags } from './../config';
 const Filters = ({ setFilter, setFilterPath, setSearchTerm, setSortOrder }) => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [activeFilterPath, setActiveFilterPath] = useState("all");
-  const [sortOrder, setSortOrderState] = useState("newest"); // Eklenen state
+  const [sortOrder, setSortOrderState] = useState("oldest");
 
   const handleFilterClick = (filter) => {
     setFilter(filter);
@@ -22,7 +22,7 @@ const Filters = ({ setFilter, setFilterPath, setSearchTerm, setSortOrder }) => {
   };
 
   const toggleSortOrder = () => {
-    const newSortOrder = sortOrder === "newest" ? "oldest" : "newest";
+    const newSortOrder = sortOrder === "oldest" ? "newest" : "oldest";
     setSortOrderState(newSortOrder);
     setSortOrder(newSortOrder);
   };
