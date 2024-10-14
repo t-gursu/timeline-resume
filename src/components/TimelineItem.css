@@ -8,12 +8,20 @@
   position: relative;
   z-index: 1;
   width: 90%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .timeline-item.milestone {
   -webkit-box-shadow: 0px 0px 20px 0px rgba(247, 255, 0, 0.38);
   -moz-box-shadow: 0px 0px 20px 0px rgba(247, 255, 0, 0.38);
   box-shadow: 0px 0px 20px 0px rgba(247, 255, 0, 0.38);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .timeline-icon {

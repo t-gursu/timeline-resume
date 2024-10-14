@@ -4,8 +4,6 @@ import "./App.css";
 import Filters from './components/Filters';
 import Timeline from "./components/Timeline";
 import Sidebar from "./components/Sidebar";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import Blog from './pages/Blog';
 import BlogPostPage from './components/BlogPostPage';
@@ -17,15 +15,6 @@ import timelineDataEn from "./data/timelineData-en.js";
 import timelineDataDe from "./data/timelineData-de.js";
 
 const App = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      offset: 0,
-      easing: 'fade-up',
-      once: true,
-    });
-  }, []);
-
   const [filter, setFilter] = useState("all");
   const [filterPath, setFilterPath] = useState("all");
   const [language, setLanguage] = useState('en');
